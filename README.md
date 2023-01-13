@@ -31,5 +31,5 @@ To use Ingredients To Meals, simply follow these steps:
 - A modern web browser is recommended for the best user experience.
 
 ## Credits 🍵
-*Ingredients To Meals* was developed by Christina and Isabelle. The application uses a third party API to search for recipes and provide meal ideas. Thank you to [names of the API Providers inserted here as links] for their valuable contribution to this project.
+*Ingredients To Meals* was developed by Christiana and Isabelle. The application uses a third party API to search for recipes and provide meal ideas. Thank you to [names of the API Providers inserted here as links] for their valuable contribution to this project.
 
