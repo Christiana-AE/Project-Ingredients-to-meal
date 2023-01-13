@@ -1,0 +1,70 @@
+.myFood-header {
+    background-color: forestgreen;
+}
+
+.h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 20px;
+    color: white;
+}
+
+#search-input {
+    width: max-content;
+    margin-bottom: 20px;
+}
+
+#save-button, #go-back {
+    background-color: #0197f6;
+    color: white;
+    width:max-content;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+#submit-button {
+    background-color: royalblue;
+    color: white;
+    width:max-content;
+    margin-bottom: 20px;
+    margin: 5px;
+}
+
+#cancel-button {
+    background-color: grey;
+    color: white;
+    width:max-content;
+    margin-bottom: 20px;
+    margin: 5px;
+
+}
+
+.meal-selection-banner {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px;
+    border-style: groove;
+    background-color: #e3fbe3;
+}
+
+#meal-background-image {
+    width: 30%;
+    padding-left: 50px;
+}
+
+.jumbotron {
+    background-color: #e3fbe3;
+}
+
+.ingredients-available {
+    width: auto;
+    height: auto;
+    background-color: #ececec;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 5px;
+}
+
+.user-selection {
+    display: flex;
+    justify-content: flex-end;
+}
