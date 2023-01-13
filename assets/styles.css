@@ -204,3 +204,13 @@ p > a:hover {
 	background-color: #dd5147;
 	box-shadow: 3px 3px #981e16;
 }
+
+.suggestion-divs {
+    padding-bottom: 30px;
+    padding-right: 30px;
+}
+
+#text-suggested-meal {
+    font-size: large;
+    font-weight: bold;
+}

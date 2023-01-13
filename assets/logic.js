@@ -24,7 +24,8 @@ function generateMealSuggestion() {
     var quantity; // Quantity of ingredients used
     var servings; // Servings of meal portion
     var cookingInstructions;
-    var nutrients = [];
+    var nutrients;
+    var nutrientValue
 
     // Spoonacular Items 
     $.ajax({
@@ -70,12 +71,14 @@ function generateMealSuggestion() {
             };
 
             $.ajax(settingsFNI).done(function (data) {
+                nutrients = [];
                 for (var i = 0; i < 7; i++) {
-                    var nutrientValue = data.foods[0].foodNutrients[i].nutrientName;
+                    nutrientValue = data.foods[0].foodNutrients[i].nutrientName;
                     nutrients.push(nutrientValue);
+                    console.log(nutrientValue);
+
                 }
 
-                console.log(data);
                 //Create ingredients and append to page
                 var createListOne = $("<li>");
                 var createListTwo = $("<li>");
@@ -104,7 +107,7 @@ function generateMealSuggestion() {
 
                 //Nutritional value
 
-                for (var i = 0; i < nutrients; i++) {
+                for (var i = 0; i < nutrients.length; i++) {
                     var createSecondList = $("<li>");
                     createSecondList.addClass("your-nutrients");
                     createSecondList.attr("data-name", nutrients[i]);
@@ -123,10 +126,13 @@ function generateMealSuggestion() {
 
 
 // //Event listener for when user clicks submit 
-$("#show-result").on("click", function (e) {
-    e.preventDefault();
-    generateMealSuggestion();
-})
+// $("#show-result").on("click", function (e) {
+//     e.preventDefault();
+//     generateMealSuggestion();
+// })
+
+generateMealSuggestion();
+
 
 
 
