@@ -27,7 +27,7 @@ function generateMealSuggestion() {
     var nutrients;
     var nutrientValue
 
-    // Spoonacular Items 
+    // Spoonacular Items from API call
     $.ajax({
         url: spoonacularURL,
         method: "GET"
@@ -39,7 +39,7 @@ function generateMealSuggestion() {
         console.log(response);
 
 
-        // Recipe by API-Ninjas
+        // Recipe by API-Ninjas - API call
         const settingsNinja = {
             "async": true,
             "crossDomain": true,
@@ -58,7 +58,7 @@ function generateMealSuggestion() {
             cookingInstructions = responseTwo[0].instructions;
             console.log(responseTwo);
 
-            // Food Nutrition Information 
+            // Food Nutrition Information - from API call
             const settingsFNI = {
                 "async": true,
                 "crossDomain": true,
@@ -123,13 +123,6 @@ function generateMealSuggestion() {
     })
 
 }
-
-
-// //Event listener for when user clicks submit 
-// $("#show-result").on("click", function (e) {
-//     e.preventDefault();
-//     generateMealSuggestion();
-// })
 
 generateMealSuggestion();
 
