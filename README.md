@@ -15,7 +15,7 @@ How the application works is that once the user has entered this raw indgredient
 The APIs will compare the user's ingredients to a database of menu items and return suggestions for meals that can be made with those ingredients, along with detailed recipes and cooking instructions. This will allow users to quickly and easily plan meals and make the most of the ingredients they have on hand, without having to spend time searching for recipes or menu ideas on their own.
 
 ### - Deployment Link
-Here is the link to the completed application: _[>> link <<]()_
+Here is the link to the completed application: _[>> https://christiana-ae.github.io/Project-Ingredients-to-meal/ <<]()_
 
 ## Gettting Started 🌯
 To use Ingredients To Meals, simply follow these steps:
