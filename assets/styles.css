@@ -212,5 +212,15 @@ p > a:hover {
 
 #text-suggested-meal {
     font-size: large;
+    font-size: 1.6em;
     font-weight: bold;
+    margin-left: 10px;
+    background-color: #e3fbe3;
+
+}
+
+#image-suggested-meal {
+    margin-left: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
 }

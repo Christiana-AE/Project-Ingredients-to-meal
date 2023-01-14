@@ -53,75 +53,82 @@ function generateMealSuggestion() {
 
 
         $.ajax(settingsNinja).then(function (responseTwo) {
-            quantity = responseTwo[0].ingredients;
-            servings = responseTwo[0].servings;
-            cookingInstructions = responseTwo[0].instructions;
-            console.log(responseTwo);
+            if (responseTwo.length > 0) {
+                quantity = responseTwo[0].ingredients;
+                servings = responseTwo[0].servings;
+                cookingInstructions = responseTwo[0].instructions;
+                console.log(responseTwo);
 
-            // Food Nutrition Information - from API call
-            const settingsFNI = {
-                "async": true,
-                "crossDomain": true,
-                "url": FoodNutInfoURL + usedIngredient + "&pageSize=1",
-                "method": "GET",
-                "headers": {
-                    "X-RapidAPI-Key": "31292e036fmshe6f344cc63a72ecp1a4a30jsnba601eb62a9e",
-                    "X-RapidAPI-Host": "food-nutrition-information.p.rapidapi.com"
-                }
-            };
+            }
+            else  {
+                //if no values returned from second API - Recipe by API Ninja
+                quantity = "Sorry! No quantity suggestions available ☹️";
+                servings = "Sorry! No servings suggestions available ☹️";
+                cookingInstructions = "Sorry! No cooking suggestions available ☹️";
+            }
 
-            $.ajax(settingsFNI).done(function (data) {
-                nutrients = [];
-                for (var i = 0; i < 7; i++) {
-                    nutrientValue = data.foods[0].foodNutrients[i].nutrientName;
-                    nutrients.push(nutrientValue);
-                    console.log(nutrientValue);
+                // Food Nutrition Information - from API call
+                const settingsFNI = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": FoodNutInfoURL + usedIngredient + "&pageSize=1",
+                    "method": "GET",
+                    "headers": {
+                        "X-RapidAPI-Key": "31292e036fmshe6f344cc63a72ecp1a4a30jsnba601eb62a9e",
+                        "X-RapidAPI-Host": "food-nutrition-information.p.rapidapi.com"
+                    }
+                };
 
-                }
+                $.ajax(settingsFNI).done(function (data) {
+                    nutrients = [];
+                    for (var i = 0; i < 7; i++) {
+                        nutrientValue = data.foods[0].foodNutrients[i].nutrientName;
+                        nutrients.push(nutrientValue);
+                        console.log(nutrientValue);
+                    }
 
-                //Create ingredients and append to page
-                var createListOne = $("<li>");
-                var createListTwo = $("<li>");
-                createListOne.text(usedIngredient);
-                createListTwo.text(usedIngredientTwo);
-                $('#ingredient-list').append(createListOne);
-                $('#ingredient-list').append(createListTwo);
+                    //Create ingredients and append to page
+                    var createListOne = $("<li>");
+                    var createListTwo = $("<li>");
+                    createListOne.text(usedIngredient);
+                    createListTwo.text(usedIngredientTwo);
+                    $('#ingredient-list').append(createListOne);
+                    $('#ingredient-list').append(createListTwo);
 
 
-                // Preparation Instructions and append to HTML
+                    // Preparation Instructions and append to HTML
 
-                // Append meal name to page
-                $("#text-suggested-meal").text(foodName);
+                    // Append meal name to page
+                    $("#text-suggested-meal").text(foodName);
 
-                // Meal image
-                $("#image-suggested-meal").attr("src", imageURL);
+                    // Meal image
+                    $("#image-suggested-meal").attr("src", imageURL);
 
-                // Quantity
-                $("#ingredient-quantity").text(quantity);
+                    // Quantity
+                    $("#ingredient-quantity").text(quantity);
 
-                // Servings 
-                $("#meal-servings").text(servings);
+                    // Servings 
+                    $("#meal-servings").text(servings);
 
-                //Cooking instructions
-                $("#how-to-prep").text(cookingInstructions);
+                    //Cooking instructions
+                    $("#how-to-prep").text(cookingInstructions);
 
-                //Nutritional value
+                    //Nutritional value
 
-                for (var i = 0; i < nutrients.length; i++) {
-                    var createSecondList = $("<li>");
-                    createSecondList.addClass("your-nutrients");
-                    createSecondList.attr("data-name", nutrients[i]);
-                    createSecondList.text(nutrients[i]);
-                    $("#individual-nutrients").append(createSecondList);
+                    for (var i = 0; i < nutrients.length; i++) {
+                        var createSecondList = $("<li>");
+                        createSecondList.addClass("your-nutrients");
+                        createSecondList.attr("data-name", nutrients[i]);
+                        createSecondList.text(nutrients[i]);
+                        $("#individual-nutrients").append(createSecondList);
 
-                }
+                    }
 
-            });
+                });
 
         });
 
     })
-
 }
 
 generateMealSuggestion();
